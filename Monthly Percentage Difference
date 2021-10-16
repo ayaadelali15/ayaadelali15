@@ -1,0 +1,7 @@
+select 
+to_char(cast(created_at as date),'YYYY-MM')as year_month,
+
+(sum(value)-lag(sum(value),1) over (order by to_char(cast(created_at as date),'YYYY-MM'))) / 
+lag(sum(value),1) over (order by to_char(cast(created_at as date),'YYYY-MM')) as  The_percentage
+from sf_transactions
+group by year_month
