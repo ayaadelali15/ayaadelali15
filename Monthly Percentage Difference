@@ -11,11 +11,6 @@ purchase_id   int
 
 
 
-
-
-
-
-
 select 
 to_char(cast(created_at as date),'YYYY-MM')as year_month,
 
